@@ -1,0 +1,96 @@
+#JAVA
+import java.util.*;
+abstract class Shape 
+{
+    int x, y;
+    abstract void printArea();
+}
+
+class Rectangle extends Shape
+{
+
+    Rectangle(int length, int breadth) 
+    {
+        x = length;
+        y = breadth;
+    }
+    void printArea() 
+    {
+        System.out.println("Area of Rectangle = " + (x * y));
+    }
+}
+
+class Triangle extends Shape 
+{
+
+    Triangle(int base, int height)
+    {
+        x = base;
+        y = height;
+    }
+    void printArea() 
+    {
+        System.out.println("Area of Triangle = " + (0.5 * x * y));
+    }
+}
+
+class Circle extends Shape 
+{
+
+    Circle(int radius) 
+    {
+        x = radius;
+    }
+    void printArea() 
+    {
+        System.out.println("Area of Circle = " + (3.14 * x * x));
+    }
+}
+
+class Main 
+{
+    public static void main(String args[]) 
+    {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter length of Rectangle: ");
+        int length = sc.nextInt();
+        System.out.print("Enter breadth of Rectangle: ");
+        int breadth = sc.nextInt();
+        Rectangle r = new Rectangle(length, breadth);
+        r.printArea();
+        System.out.print("\nEnter base of Triangle: ");
+        int base = sc.nextInt();
+        System.out.print("Enter height of Triangle: ");
+        int height = sc.nextInt();
+        Triangle t = new Triangle(base, height);
+        t.printArea();
+        System.out.print("\nEnter radius of Circle: ");
+        int radius = sc.nextInt();
+        Circle c = new Circle(radius);
+        c.printArea();
+    }
+}
+
+
+
+#WT
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Image</title>
+</head>
+<body>
+    <h2>Image Change Example</h2>
+    <img id="myImage" src="image1.jpg" width="300" height="200">
+    <br><br>
+    <button onclick="changeImage()">Change Image</button>
+    <script>
+        function changeImage() 
+	{
+            document.getElementById("myImage").src = "image2.jpg";
+        }
+    </script>
+</body>
+</html>

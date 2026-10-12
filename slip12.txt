@@ -1,0 +1,105 @@
+Indoor.java
+package game;
+
+public class Indoor 
+{
+    String gameName;
+    int players;
+    public Indoor() 
+    {
+        gameName = "Unknown";
+        players = 0;
+    }
+    public Indoor(String name, int p)
+    {
+        gameName = name;
+        players = p;
+    }
+    public void display()
+    {
+        System.out.println("Indoor Game: " + gameName);
+        System.out.println("Number of Players: " + players);
+    }
+}
+
+
+Outdoor.java
+package game;
+public class Outdoor 
+{
+    String gameName;
+    int players;
+    public Outdoor() 
+    {
+        gameName = "Unknown";
+        players = 0;
+    }
+    public Outdoor(String name, int p) 
+    {
+        gameName = name;
+        players = p;
+    }
+    public void display() 
+    {
+        System.out.println("Outdoor Game: " + gameName);
+        System.out.println("Number of Players: " + players);
+    }
+}
+
+
+//Create Main.java outside the game package:
+import game.Indoor;
+import game.Outdoor;
+class Main {
+    public static void main(String args[]) 
+    {
+        Indoor i1 = new Indoor();
+        i1.display();
+        System.out.println();
+        Indoor i2 = new Indoor("Chess", 2);
+        i2.display();
+        System.out.println();
+        Outdoor o1 = new Outdoor();
+        o1.display();
+        System.out.println();
+        Outdoor o2 = new Outdoor("Cricket", 11);
+        o2.display();
+    }
+}
+
+Project
+│
+├── Main.java
+│
+└── game
+    ├── Indoor.java
+    └── Outdoor.java
+
+
+#WT
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Bill</title>
+</head>
+<body>
+<h2>Product Bill</h2>
+<script>
+    var name = prompt("Enter Product Name:");
+    var price = Number(prompt("Enter Price:"));
+    var quantity = Number(prompt("Enter Quantity:"));
+    var totalPrice = (price, quantity) => price * quantity;
+    var total = totalPrice(price, quantity);
+    var bill = `
+        <h3>----- BILL -----</h3>
+        Product Name : ${name} <br>
+        Price        : ${price} <br>
+        Quantity     : ${quantity} <br>
+        Total Price  : ${total} <br>
+    `;
+
+    document.write(bill);
+</script>
+</body>
+</html>

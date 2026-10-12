@@ -1,0 +1,144 @@
+#JAVA
+import java.util.*;
+class Account
+{
+    String custname;
+    int accno;
+    Account()
+    {
+        custname = "Unknown";
+        accno = 0;
+    }
+    Account(String name, int no)
+    {
+        custname = name;
+        accno = no;
+    }
+}
+
+
+class SavingAccount extends Account
+{
+    double savingbal;
+    double minbal;
+    SavingAccount(String name,int no,double balance,double minimum)
+    {
+        super(name, no);
+        savingbal = balance;
+        minbal = minimum;
+    }
+}
+
+
+class AccountDetail extends SavingAccount
+{
+    double depositamt;
+    double withdrawalamt;
+    AccountDetail(String name,int no,double balance,double minimum,double deposit,double withdrawal)
+    {
+        super(name, no, balance, minimum);
+        depositamt = deposit;
+        withdrawalamt = withdrawal;
+    }
+
+    void display()
+    {
+        System.out.println("\n----- Customer Details -----");
+        System.out.println("Customer Name    : " + custname);
+        System.out.println("Account Number   : " + accno);
+        System.out.println("Saving Balance   : " + savingbal);
+        System.out.println("Minimum Balance  : " + minbal);
+        System.out.println("Deposit Amount   : " + depositamt);
+        System.out.println("Withdrawal Amount : " + withdrawalamt);
+    }
+}
+
+
+class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        String name;
+        int no;
+        double balance, minimum, deposit, withdrawal;
+        System.out.print("Enter Customer Name: ");
+        name = sc.nextLine();
+        System.out.print("Enter Account Number: ");
+        no = sc.nextInt();
+        System.out.print("Enter Saving Balance: ");
+        balance = sc.nextDouble();
+        System.out.print("Enter Minimum Balance: ");
+        minimum = sc.nextDouble();
+        System.out.print("Enter Deposit Amount: ");
+        deposit = sc.nextDouble();
+        System.out.print("Enter Withdrawal Amount: ");
+        withdrawal = sc.nextDouble();
+        AccountDetail a = new AccountDetail(name, no, balance, minimum, deposit, withdrawal);
+        a.display();
+    }
+}
+you can use this also ...
+/*class Main
+{
+    public static void main(String args[])
+    {
+        AccountDetail a = new AccountDetail(
+            "Arathi",
+            101,
+            10000,
+            1000,
+            5000,
+            2000
+        );
+
+        a.display();
+    }
+}
+*/
+
+
+#WT
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hover Effect</title>
+    <style>
+        body
+        {
+            text-align: center;
+            font-family: Arial;
+        }
+        button
+        {
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+        }
+        button:hover
+        {
+            background-color: green;
+            color: yellow;
+        }
+        a
+        {
+            display: block;
+            margin-top: 20px;
+            color: blue;
+            font-size: 20px;
+        }
+        a:hover
+        {
+            color: red;
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Mouse Hover Example</h1>
+    <button>Click Me</button>
+    <a href="https://www.google.com">Visit Google</a>
+</body>
+</html>

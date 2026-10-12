@@ -1,0 +1,74 @@
+#JAVA
+import java.util.*;
+class College 
+{
+    int cno;
+    String cname;
+    String caddr;
+    College(int no, String name, String addr) 
+    {
+        cno = no;
+        cname = name;
+        caddr = addr;
+    }
+    void displayCollege() 
+    {
+        System.out.println("\n----- College Details -----");
+        System.out.println("College No      : " + cno);
+        System.out.println("College Name    : " + cname);
+        System.out.println("College Address : " + caddr);
+    }
+}
+
+class Department extends College 
+{
+    int dno;
+    String dname;
+    Department(int cno, String cname, String caddr, int no, String name) 
+    {
+        super(cno, cname, caddr);
+        dno = no;
+        dname = name;
+    }
+    void display() 
+    {
+        displayCollege();
+        System.out.println("Department No   : " + dno);
+        System.out.println("Department Name : " + dname);
+    }
+}
+class Main 
+{
+    public static void main(String args[]) 
+    {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter College No: ");
+        int cno = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Enter College Name: ");
+        String cname = sc.nextLine();
+        System.out.print("Enter College Address: ");
+        String caddr = sc.nextLine();
+        System.out.print("Enter Department No: ");
+        int dno = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Enter Department Name: ");
+        String dname = sc.nextLine();
+        Department d = new Department(cno, cname, caddr, dno, dname);
+        d.display();
+    }
+}
+
+#WT
+
+
+var path = require("path");
+var joinedPath = path.join("college", "computer", "notes.txt");
+console.log("Joined Path   :", joinedPath);
+var resolvedPath = path.resolve("college", "computer", "notes.txt");
+console.log("Resolved Path :", resolvedPath);
+var filePath = "/home/student/college/notes.txt";
+console.log("Directory     :", path.dirname(filePath));
+console.log("File Name     :", path.basename(filePath));
+console.log("Extension     :", path.extname(filePath));

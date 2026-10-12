@@ -1,0 +1,76 @@
+#JAVA
+import java.util.*;
+interface Calculator 
+{
+    void add();
+    void subtract();
+}
+class SimpleCalc implements Calculator 
+{
+    int a, b;
+    SimpleCalc(int x, int y) 
+    {
+        a = x;
+        b = y;
+    }
+    public void add() 
+    {
+        System.out.println("Addition = " + (a + b));
+    }
+
+    public void subtract() 
+    {
+        System.out.println("Subtraction = " + (a - b));
+    }
+}
+class Main 
+{
+    public static void main(String args[]) 
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+        SimpleCalc c = new SimpleCalc(a, b);
+        c.add();
+        c.subtract();
+    }
+}
+
+#WT
+
+var fs = require("fs");
+fs.mkdirSync("MyFolder");
+console.log("Directory created."); 
+
+fs.mkdirSync("NewFolder");
+console.log("Another directory created.");
+
+var files = fs.readdirSync(".");
+console.log("\nFiles and Directories:");
+console.log(files);
+
+fs.renameSync("NewFolder", "RenamedFolder");
+console.log("\nDirectory renamed.");
+fs.rmdirSync("RenamedFolder");
+
+console.log("Directory deleted.");
+var student = {
+    name: "Arathi",
+    rollNo: 101,
+    course: "BSc Computer Science",
+    marks: 85
+};
+
+var jsonData = JSON.stringify(student);
+fs.writeFileSync("student.json", jsonData);
+console.log("\nJSON data written to student.json");
+
+var data = fs.readFileSync("student.json", "utf8");
+var obj = JSON.parse(data);
+console.log("\nStudent Details:");
+console.log("Name   :", obj.name);
+console.log("Roll No:", obj.rollNo);
+console.log("Course :", obj.course);
+console.log("Marks  :", obj.marks);

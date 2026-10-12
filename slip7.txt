@@ -1,0 +1,92 @@
+#JAVA
+import java.util.Scanner;
+class AgeException extends Exception
+{
+    AgeException(String message)
+    {
+        super(message);
+    }
+}
+class Driver
+{
+    int license_no;
+    String name;
+    String address;
+    int age;
+    Driver(int license, String n, String a, int ag)
+    {
+        license_no = license;
+        name = n;
+        address = a;
+        age = ag;
+    }
+    void display()
+    {
+        System.out.println("\n----- Driver Details -----");
+        System.out.println("License Number : " + license_no);
+        System.out.println("Name           : " + name);
+        System.out.println("Address        : " + address);
+        System.out.println("Age            : " + age);
+    }
+}
+class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        try
+        {
+            System.out.print("Enter License Number: ");
+            int license = sc.nextInt();
+            sc.nextLine();
+            System.out.print("Enter Name: ");
+            String name = sc.nextLine();
+            System.out.print("Enter Address: ");
+            String address = sc.nextLine();
+            System.out.print("Enter Age: ");
+            int age = sc.nextInt();
+            if(age < 18)
+                throw new AgeException("Age is below 18 years");
+            Driver d = new Driver(license, name, address, age);
+            d.display();
+        }
+        catch(AgeException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+#WT
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Programming Languages</title>
+    <style>
+        li:first-child
+        {
+            color: red;
+            background-color: yellow;
+            font-size: 20px;
+        }
+        li:last-child
+        {
+            color: blue;
+            background-color: lightgreen;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Programming Languages</h2>
+    <ul>
+        <li>C</li>
+        <li>C++</li>
+        <li>Java</li>
+        <li>Python</li>
+        <li>JavaScript</li>
+    </ul>
+</body>
+</html>

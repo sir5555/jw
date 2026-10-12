@@ -1,0 +1,69 @@
+#JAVA
+import java.util.*;
+class Employee
+{
+    int id;
+    String name;
+    double salary;
+    Employee(int i, String n, double s)
+    {
+        id = i;
+        name = n;
+        salary = s;
+    }
+}
+class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int n;
+        System.out.print("Enter number of employees: ");
+        n = sc.nextInt();
+        Employee e[] = new Employee[n];
+        for(int i = 0; i < n; i++)
+        {
+            System.out.println("\nEnter details of Employee " + (i + 1));
+            System.out.print("Enter ID: ");
+            int id = sc.nextInt();
+            sc.nextLine();
+            System.out.print("Enter Name: ");
+            String name = sc.nextLine();
+            System.out.print("Enter Salary: ");
+            double salary = sc.nextDouble();
+            e[i] = new Employee(id, name, salary);
+        }
+        int max = 0;
+        for(int i = 1; i < n; i++)
+        {
+            if(e[i].salary > e[max].salary)
+                max = i;
+        }
+        System.out.println("\nEmployee having maximum salary:");
+        System.out.println("Name   : " + e[max].name);
+        System.out.println("Salary : " + e[max].salary);
+    }
+}
+
+#WT
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arrow Functions</title>
+</head>
+<body>
+    <h2>Arithmetic Operations using Arrow Functions</h2>
+    <script>
+        var a = 20;
+        var b = 10;
+        var addition = (a, b) => a + b;
+        var subtraction = (a, b) => a - b;
+        var multiplication = (a, b) => a * b;
+        var division = (a, b) => a / b;
+        document.write("Addition = " + addition(a, b) + "<br>");
+        document.write("Subtraction = " + subtraction(a, b) + "<br>");
+        document.write("Multiplication = " + multiplication(a, b) + "<br>");
+        document.write("Division = " + division(a, b));
+    </script>
+</body>
+</html>

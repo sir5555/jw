@@ -1,0 +1,177 @@
+
+#JAVA
+import java.util.Scanner;
+class Armstrong
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int start, end, num, temp, rem, sum;
+        System.out.print("Enter starting number: ");
+        start = sc.nextInt();
+        System.out.print("Enter ending number: ");
+        end = sc.nextInt();
+        System.out.println("Armstrong numbers are:");
+        for(num = start; num <= end; num++)
+        {
+            temp = num;
+            sum = 0;
+            while(temp > 0)
+            {
+                rem = temp % 10;
+                sum = sum + (rem * rem * rem);
+                temp = temp / 10;
+            }
+            if(sum == num)
+                System.out.println(num);
+
+        }
+    }
+}
+
+#WT
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+    <style>
+        body
+        {
+            font-family: Arial;
+        }
+        .form
+        {
+            width: 500px;
+            margin: auto;
+            padding: 15px;
+            background-color: #ffe4e1;
+        }
+        h1
+        {
+            text-align: center;
+            font-size: 25px;
+        }
+        label
+        {
+            display: inline-block;
+            width: 100px;
+            margin: 8px;
+        }
+        input, select
+        {
+            padding: 5px;
+        }
+        textarea
+        {
+            width: 240px;
+            height: 50px;
+        }
+        .button
+        {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="form">
+    <h1>Student Registration Form</h1>
+    <form>
+        <label>Roll no. :</label>
+        <input type="text" name="rollno"
+               required pattern="[0-9]+">
+        <br>
+        <label>Student name :</label>
+        <input type="text" name="fname"
+               placeholder="First Name"
+               required>
+        <input type="text" name="lname"
+               placeholder="Last Name"
+               required>
+        <br>
+
+        <label>Father's name :</label>
+        <input type="text" name="father"
+               required>
+        <br>
+        <label>Date of birth :</label>
+        <input type="date" name="dob"
+               required>
+        <br>
+        <label>Mobile no. :</label>
+
+        <input type="text" value="+91"
+               size="2" readonly>
+        <input type="tel" name="mobile"
+               pattern="[0-9]{10}"
+               required>
+        <br>
+        <label>Email id :</label>
+        <input type="email" name="email"
+               required>
+        <br>
+        <label>Password :</label>
+        <input type="password" name="password"
+               minlength="8"
+               required>
+        <br>
+        <label>Gender :</label>
+        <input type="radio" name="gender"
+               value="Male" required>
+        Male
+        <input type="radio" name="gender"
+               value="Female">
+        Female
+        <br>
+        <label>Department :</label>
+        <input type="checkbox" name="dept"
+               value="CSE">
+        CSE
+        <input type="checkbox" name="dept"
+               value="IT">
+        IT
+        <input type="checkbox" name="dept"
+               value="ECE">
+        ECE
+        <input type="checkbox" name="dept"
+               value="Civil">
+        Civil
+        <input type="checkbox" name="dept"
+               value="Mech">
+        Mech
+        <br>
+        <label>Course :</label>
+        <select name="course" required>
+            <option value="">
+                -------- Select Current Course --------
+            </option>
+            <option value="BSc CS">
+                B.Sc Computer Science
+            </option>
+            <option value="BCA">
+                BCA
+            </option>
+            <option value="BSc IT">
+                B.Sc IT
+            </option>
+        </select>
+        <br>
+        <label>Student photo :</label>
+        <input type="file" name="photo">
+        <br>
+        <label>City :</label>
+        <input type="text" name="city"
+               required>
+        <br>
+        <label>Address :</label>
+        <textarea name="address"
+                  required></textarea>
+        <br>
+        <div class="button">
+            <input type="submit"
+                   value="Register">
+        </div>
+    </form>
+</div>
+</body>
+</html>

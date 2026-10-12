@@ -1,0 +1,105 @@
+#JAVA
+import java.util.*;
+class AttendanceException extends Exception 
+{
+    AttendanceException(String message) 
+    {
+        super(message);
+    }
+}
+
+class Student 
+{
+    String student_name;
+    int student_rollno;
+    int total_lectures;
+    int attended_lectures;
+    Student(String name, int rollno, int total, int attended) 
+   {
+        student_name = name;
+        student_rollno = rollno;
+        total_lectures = total;
+        attended_lectures = attended;
+    }
+
+    void checkAttendance() throws AttendanceException 
+    {
+        double percentage = (attended_lectures * 100.0) / total_lectures;
+        if (percentage < 75) 
+	{
+            throw new AttendanceException("Student is Not Eligible for Exam");
+        }
+        System.out.println("\nStudent Details");
+        System.out.println("Name              : " + student_name);
+        System.out.println("Roll No            : " + student_rollno);
+        System.out.println("Total Lectures    : " + total_lectures);
+        System.out.println("Attended Lectures : " + attended_lectures);
+        System.out.println("Attendance        : " + percentage + "%");
+        System.out.println("Student is Eligible for Exam");
+    }
+}
+
+class Main 
+{
+    public static void main(String args[]) 
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Student Name: ");
+        String name = sc.nextLine();
+        System.out.print("Enter Roll No: ");
+        int rollno = sc.nextInt();
+        System.out.print("Enter Total Lectures: ");
+        int total = sc.nextInt();
+        System.out.print("Enter Attended Lectures: ");
+        int attended = sc.nextInt();
+        Student s = new Student(name, rollno, total, attended);
+        try 
+	{
+            s.checkAttendance();
+        }
+        catch (AttendanceException e) 
+	{
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+#WT
+
+var fs = require("fs");
+fs.writeFile("abc.txt", "Hello Node.js", function(err) 
+{
+    if (err) 
+    {
+        console.log("Error creating file:", err.message);
+        return;
+    }
+    console.log("File created successfully.");
+    fs.copyFile("abc.txt", "copy.txt", function(err) 
+    {
+        if (err) 
+	{
+            console.log("Error copying file:", err.message);
+            return;
+        }
+        console.log("File copied successfully.");
+        fs.rename("copy.txt", "newfile.txt", function(err) 
+	{
+            if (err) 
+	    {
+                console.log("Error renaming file:", err.message);
+                return;
+            }
+            console.log("File renamed successfully.");
+            fs.unlink("newfile.txt", function(err) 
+            {
+                if (err) 
+		{
+                    console.log("Error deleting file:", err.message);
+                    return;
+                }
+                console.log("File deleted successfully.");
+            });
+        });
+    });
+});

@@ -1,0 +1,78 @@
+#JAVA
+import java.util.*;
+class InvalidDateException extends Exception 
+{
+    InvalidDateException(String message) 
+    {
+        super(message);
+    }
+}
+
+class MyDate 
+{
+    int Day, Month, year;
+    MyDate(int d, int m, int y) 
+    {
+        Day = d;
+        Month = m;
+        year = y;
+    }
+    void accept() throws InvalidDateException 
+    {
+        if (Day < 1 || Day > 31 || Month < 1 || Month > 12 || year < 1) 
+            throw new InvalidDateException("Invalid Date");
+        if ((Month == 4 || Month == 6 || Month == 9 || Month == 11)
+                && Day > 30) 
+            throw new InvalidDateException("Invalid Date");
+        if (Month == 2 && Day > 29)
+            throw new InvalidDateException("Invalid Date");
+    }
+    void display() 
+    {
+        System.out.println("Date = " + Day + "/" + Month + "/" + year);
+    }
+}
+class Main 
+{
+    public static void main(String args[]) 
+{
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Day: ");
+        int d = sc.nextInt();
+        System.out.print("Enter Month: ");
+        int m = sc.nextInt();
+        System.out.print("Enter Year: ");
+        int y = sc.nextInt();
+        MyDate date = new MyDate(d, m, y);
+        try 
+	{
+            date.accept();
+            date.display();
+        }
+        catch (InvalidDateException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+
+#WT
+var fs = require("fs");
+var path = require("path");
+var folder = ".";
+fs.readdir(folder, function(err, files) 
+{
+    if (err) 
+    {
+        console.log("Error reading directory:", err.message);
+        return;
+    }
+    console.log("Matching Files:");
+    for (var i = 0; i < files.length; i++) 
+    {
+
+        var ext = path.extname(files[i]);
+        if (ext == ".txt" || ext == ".json" || ext == ".js") 
+            console.log(files[i]);
+    }
+});

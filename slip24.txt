@@ -1,0 +1,64 @@
+#JAVA
+import java.util.*;
+abstract class Shape 
+{
+    abstract void area();
+    abstract void volume();
+}
+class Cylinder extends Shape 
+{
+    double radius, height;
+    Cylinder(double r, double h) 
+    {
+        radius = r;
+        height = h;
+    }
+    void area() 
+    {
+        double a = 2 * 3.14 * radius * (radius + height);
+        System.out.println("Surface Area = " + a);
+    }
+    void volume() 
+    {
+        double v = 3.14 * radius * radius * height;
+        System.out.println("Volume = " + v);
+    }
+}
+class Main 
+{
+    public static void main(String args[]) 
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Radius: ");
+        double r = sc.nextDouble();
+        System.out.print("Enter Height: ");
+        double h = sc.nextDouble();
+        Cylinder c = new Cylinder(r, h);
+        c.area();
+        c.volume();
+    }
+}
+
+#WT
+
+var fs = require("fs");
+console.log("----- Synchronous Operation -----");
+console.log("Start");
+var data = fs.readFileSync("abc.txt", "utf8");
+console.log("File Data:");
+console.log(data);
+console.log("End");
+console.log("\n----- Asynchronous Operation -----");
+console.log("Start");
+fs.readFile("abc.txt", "utf8", function(err, data) 
+{
+    if (err)
+        throw err;
+    console.log("File Data:");
+    console.log(data);
+});
+console.log("End");
+
+/*Example abc.txt
+Hello Node.js
+This is a file*/

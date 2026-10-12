@@ -1,0 +1,74 @@
+import java.util.*;
+class Continent 
+{
+    String continent;
+    Continent(String c) 
+    {
+        continent = c;
+    }
+}
+
+class Country extends Continent 
+{
+    String country;
+    Country(String c, String co) 
+    {
+        super(c);
+        country = co;
+    }
+}
+
+class State extends Country 
+{
+    String state;
+    String place;
+    State(String c, String co, String s, String p) 
+    {
+        super(c, co);
+        state = s;
+        place = p;
+    }
+    void display() 
+    {
+        System.out.println("\n----- Place Details -----");
+        System.out.println("Place     : " + place);
+        System.out.println("State     : " + state);
+        System.out.println("Country   : " + country);
+        System.out.println("Continent : " + continent);
+    }
+}
+
+class Main 
+{
+    public static void main(String args[]) 
+    {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Continent: ");
+        String continent = sc.nextLine();
+        System.out.print("Enter Country: ");
+        String country = sc.nextLine();
+        System.out.print("Enter State: ");
+        String state = sc.nextLine();
+        System.out.print("Enter Place: ");
+        String place = sc.nextLine();
+        State s = new State(continent, country, state, place);
+        s.display();
+    }
+}
+
+
+#WT
+
+
+var fs = require("fs");
+fs.writeFileSync("abc.txt", "Hello, this is the first line.\n");
+console.log("File created and data written.");
+var data = fs.readFileSync("abc.txt", "utf8");
+console.log("\nFile Data:");
+console.log(data);
+fs.appendFileSync("abc.txt", "This is the second line.\n");
+console.log("Data appended successfully.");
+var newData = fs.readFileSync("abc.txt", "utf8");
+console.log("\nUpdated File Data:");
+console.log(newData);

@@ -1,0 +1,81 @@
+import java.io.*;
+import java.util.*;
+class FileCount 
+{
+    public static void main(String args[]) 
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter file name: ");
+        String filename = sc.nextLine();
+        int characters = 0;
+        int words = 0;
+        int lines = 0;
+        try 
+	{
+            File file = new File(filename);
+            Scanner fs = new Scanner(file);
+            while (fs.hasNextLine()) 
+	    {
+                String line = fs.nextLine();
+                lines++;
+                characters = characters + line.length();
+                String w[] = line.split(" ");
+                for (int i = 0; i < w.length; i++) 
+		{
+                    if (!w[i].equals(""))
+                        words++;
+                }
+            }
+            fs.close();
+            System.out.println("Number of Lines      : " + lines);
+            System.out.println("Number of Words      : " + words);
+            System.out.println("Number of Characters : " + characters);
+        } 
+	catch (FileNotFoundException e) 
+	{
+            System.out.println("File not found.");
+        }
+    }
+}
+
+/*Suppose abc.txt contains:
+
+Hello World
+Java is easy*/
+
+#WT
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Login</title>
+</head>
+<body>
+<h2>Login</h2>
+<script>
+    async function login(username, password)
+    {
+        if (username == "admin" && password == "1234")
+            return "Login Successful!";
+	else
+            throw "Invalid Username or Password";
+    }
+
+    async function checkLogin()
+    {
+        var username = prompt("Enter Username:");
+        var password = prompt("Enter Password:");
+        try 
+	{
+            var result = await login(username, password);
+            document.write("<h3>" + result + "</h3>");
+        }
+        catch (error) 
+	{
+            document.write("<h3>" + error + "</h3>");
+        }
+    }
+    checkLogin();
+</script>
+</body>
+</html>

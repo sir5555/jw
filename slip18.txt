@@ -1,0 +1,49 @@
+#JAVA
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+public class ColorButton extends Application 
+{
+
+    public void start(Stage stage) 
+    {
+
+        Button red = new Button("Red");
+        Button green = new Button("Green");
+        Button blue = new Button("Blue");
+        red.setOnAction(e -> {
+            System.out.println("Red");
+        });
+        green.setOnAction(e -> {
+            System.out.println("Green");
+        });
+        blue.setOnAction(e -> {
+            System.out.println("Blue");
+        });
+        VBox root = new VBox(10);
+        root.getChildren().addAll(red, green, blue);
+        Scene scene = new Scene(root, 300, 200);
+        stage.setTitle("Color Buttons");
+        stage.setScene(scene);
+        stage.show();
+    }
+    public static void main(String args[]) 
+    {
+        launch(args);
+    }
+}
+
+#WT
+
+var http = require("http");
+var server = http.createServer(function(req, res) 
+{
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.write("<h1>Hello from Node.js Server</h1>");
+    res.write("<p>Server is working successfully!</p>");
+    res.end();
+});
+server.listen(3000);
+console.log("Server started at http://localhost:3000");

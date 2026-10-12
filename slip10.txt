@@ -1,0 +1,68 @@
+#JAVA
+import java.io.FileReader;
+import java.io.IOException;
+class ReadFile
+{
+    public static void main(String args[])
+    {
+        try
+        {
+            FileReader fr = new FileReader("abc.txt");
+            int ch;
+            while((ch = fr.read()) != -1)
+            {
+                System.out.print(Character.toUpperCase((char)ch));
+            }
+
+            fr.close();
+        }
+        catch(IOException e)
+        {
+            System.out.println("File not found.");
+        }
+    }
+}
+
+
+#WT
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Report</title>
+</head>
+<body>
+    <h2>Student Report</h2>
+    <script>
+        var name = "Arathi";
+        var rollno = 101;
+        var course = "BSc Computer Science";
+        var java = 85;
+        var web = 80;
+        var database = 75;
+        var total = java + web + database;
+        var percentage = total / 3;
+        // Template literal
+        var report = `
+            Student Name : ${name}
+            <br>
+            Roll Number  : ${rollno}
+            <br>
+            Course       : ${course}
+            <br><br>
+
+            Java         : ${java}
+            <br>
+            Web Technology : ${web}
+            <br>
+            Database     : ${database}
+            <br><br>
+
+            Total Marks  : ${total}
+            <br>
+            Percentage   : ${percentage}%
+        `;
+        document.write(report);
+    </script>
+</body>
+</html>

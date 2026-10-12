@@ -1,0 +1,106 @@
+#JAVA
+import java.util.Scanner;
+class MatrixMenu
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int r, c;
+        int i, j, k;
+        int choice;
+        System.out.print("Enter number of rows: ");
+        r = sc.nextInt();
+        System.out.print("Enter number of columns: ");
+        c = sc.nextInt();
+        int a[][] = new int[r][c];
+        int b[][] = new int[r][c];
+        System.out.println("Enter first matrix:");
+        for(i = 0; i < r; i++)
+        {
+            for(j = 0; j < c; j++)
+                a[i][j] = sc.nextInt();
+        }
+        System.out.println("Enter second matrix:");
+        for(i = 0; i < r; i++)
+        {
+            for(j = 0; j < c; j++)
+                b[i][j] = sc.nextInt();
+        }
+
+        do
+        {
+            System.out.println("\n----- MENU -----");
+            System.out.println("1. Addition");
+            System.out.println("2. Multiplication");
+            System.out.println("3. Transpose");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+            switch(choice)
+            {
+                case 1:
+                    System.out.println("Addition:");
+                    for(i = 0; i < r; i++)
+                    {
+                        for(j = 0; j < c; j++)
+                            System.out.print((a[i][j] + b[i][j]) + " ");
+                        System.out.println();
+                    }
+                    break;
+                case 2:
+                    if(r != c)
+
+                        System.out.println("Multiplication is possible only for square matrix.");
+                    else
+                    {
+                        System.out.println("Multiplication:");
+                        for(i = 0; i < r; i++)
+                        {
+                            for(j = 0; j < c; j++)
+                            {
+                                int sum = 0;
+                                for(k = 0; k < c; k++)
+                                    sum = sum + a[i][k] * b[k][j];
+                                System.out.print(sum + " ");
+                            }
+                            System.out.println();
+                        }
+                    }
+
+                    break;
+                case 3:
+                    System.out.println("Transpose of First Matrix:");
+                    for(i = 0; i < c; i++)
+                    {
+                        for(j = 0; j < r; j++)
+                            System.out.print(a[j][i] + " ");
+                        System.out.println();
+                    }
+                    break;
+                case 4:
+                    System.out.println("Program Ended.");
+                    break;
+            }
+
+        } while(choice != 4);
+    }
+}
+
+#WT
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Heading</title>
+    <script>
+        function changeText()
+        {
+            document.getElementById("heading").innerHTML =
+                "Text Changed Successfully!";
+        }
+    </script>
+</head>
+<body>
+    <h1 id="heading">Hello! Welcome</h1>
+    <button onclick="changeText()">Click Me</button>
+</body>
+</html>

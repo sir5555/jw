@@ -1,0 +1,78 @@
+#JAVA
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
+class PrimeNumber extends Application 
+{
+    public void start(Stage stage)
+ {
+
+        Label l1 = new Label("Enter Number:");
+        TextField input = new TextField();
+        Label l2 = new Label("Result:");
+        TextField output = new TextField();
+        output.setEditable(false);
+        Button process = new Button("Process");
+        process.setOnAction(e -> {
+            int n = Integer.parseInt(input.getText());
+            boolean prime = true;
+            if (n <= 1) 
+                prime = false
+	    else 
+	    {
+                for (int i = 2; i < n; i++) 
+		{
+                    if (n % i == 0) 
+		    {
+                        prime = false;
+                        break;
+                    }
+                }
+            }
+
+            if (prime)
+                output.setText(n + " is a Prime Number");
+            else
+                output.setText(n + " is Not a Prime Number");
+        });
+
+        VBox root = new VBox(10);
+        root.getChildren().addAll(l1, input, process, l2, output);
+
+        Scene scene = new Scene(root, 350, 250);
+
+        stage.setTitle("Prime Number");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public static void main(String args[]) {
+        launch(args);
+    }
+}
+
+#WT
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Details</title>
+</head>
+<body>
+<h2>Employee Details</h2>
+<script>
+    var employee =
+    {
+        name: "Arathi",
+        department: "Computer Science",
+        salary: 30000
+    };
+    var { name, department, salary } = employee;
+    document.write("Employee Name : " + name + "<br>");
+    document.write("Department : " + department + "<br>");
+    document.write("Salary : ₹" + salary);
+</script>
+</body>
+</html>

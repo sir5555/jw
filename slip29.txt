@@ -1,0 +1,74 @@
+#JAVA
+import java.util.*;
+class ZeroException extends Exception
+{
+    ZeroException(String message) 
+    {
+        super(message);
+    }
+}
+class NumberCheck 
+{
+    static void checkPrime(int n) throws ZeroException 
+    {
+        if (n == 0)
+            throw new ZeroException("Number is 0");
+        boolean prime = true;
+        if (n < 2) 
+            prime = false;
+	else 
+	{
+            for (int i = 2; i < n; i++) 
+	    {
+                if (n % i == 0)
+		{
+                    prime = false;
+                    break;
+                }
+            }
+        }
+        if (prime)
+            System.out.println(n + " is Prime");
+        else
+            System.out.println(n + " is Not Prime");
+    }
+}
+class Main 
+{
+    public static void main(String args[]) 
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        try 
+	{
+            NumberCheck.checkPrime(n);
+        }
+        catch (ZeroException e) 
+	{
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+#WT
+
+var fs = require("fs");
+var filePath = "abc.txt";
+fs.stat(filePath, function(err, stats) 
+{
+    if (err) 
+    {
+        console.log("Error:", err.message);
+        return;
+    }
+    console.log("----- File Statistics -----");
+    console.log("File Size       :", stats.size, "bytes");
+    if (stats.isFile())
+        console.log("Type            : File");
+    else if (stats.isDirectory()) 
+        console.log("Type            : Directory");
+    console.log("Creation Time   :", stats.birthtime);
+    console.log("Access Time     :", stats.atime);
+    console.log("Modification    :", stats.mtime);
+});
